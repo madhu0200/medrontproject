@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>login </title>
+    <style>
+    *
+    {
+    margin:20px;
+    text-align:center;
+    }
+        .div
+        {
+        border:1px solid black;
+        margin:10% 25%;
+        }
+    </style>
+</head>
+<body>
+{% extends "base.html" %}
+{% block title %}
+{% for message in messages %}
+<div class="alert alert-{{message.tags}}" role="alert">
+    <p>{{message}}</p>
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span></button>
+</div>
+{% endfor %}
+<form method="POST" action="{% url 'login' %}">
+
+    <div class="div">
+
+        <h1>login form</h1>
+        <label for="email">email</label>
+
+        <input type="email" name="email"><br>
+
+        <label for="password">password </label>
+        <input type="password" name="password"><br>
+        <input type="submit" class="btn btn-primary" value="login"><br><br>
+        <span>not a user !! <a href="{% url 'signup' %}">sign up</a></span>
+    </div>
+</form>
+{% endblock %}
+
+</body>
+</html>

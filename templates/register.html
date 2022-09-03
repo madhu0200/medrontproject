@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>register</title>
+</head>
+<style>
+  *
+  {
+  margin:20px;
+  text-align:center;
+  }
+  .div
+  {
+  border:1px solid black;
+  margin:10% 25%;
+  }
+  input
+  {
+  margin-right:10%;
+  }
+</style>
+ <script>
+                    function hide()
+                    {
+                        b=document.getElementByName("btn")
+                        b.style.display="none";
+                    }
+                </script>
+<body>
+{% extends 'base.html' %}
+{% block title %}
+{% for message in messages %}
+            <div class="alert alert-{{message.tags}}" role="alert" name="btn">
+                    <p> {{ message }} </p>
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close"  onclick="hide()">
+                <span aria-hidden="true">&times;</span></button>
+
+            </div>
+{% endfor %}
+<form action="{% url 'signup' %}" method="POST">
+  <div class="div">
+    <h1>register</h1>
+    <label for="first name">first name*</label>
+    <input type="text" name="firstname" required minlength="3"><br>
+
+    <label for="last name">last name*</label>
+    <input type="text" name="lastname" required minlength="3"><br>
+
+    <label for="email">email*</label>
+    <input type="email" name="email" required><br>
+
+    <label for="password">password*</label>
+    <input type="password" name="password" required minlength="8"><br>
+
+    <label for="confirm_password">confirm password*</label>
+    <input type="password" name="confirm_password" required minlength="8"><br>
+    <input type="submit" class="btn btn-primary"><br>
+    <span>Already a user ?<a href="{% url 'login' %}">login</a></span>
+  </div>
+</form>
+{% endblock %}
+
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>shopping</title>
+</head>
+<style>
+    .div
+    {
+    display:flex;
+    border:1px solid black;
+    }
+    *
+    {
+margin:10px 20px;
+    }
+
+</style>
+<body>
+
+{% for phone in mobiles %}
+<div class="div">
+    <div>
+<img src={{phone.picture.url }} style="height:300px;width:300px">
+        </div>
+    <div>
+        <table>
+            <tr>
+                <td><b>name :</b></td>
+                <td><p>{{phone.name}}</p></td>
+            </tr>
+            <tr>
+                <td><b>brand :</b></td>
+                <td><p>{{phone.brand}}</p></td>
+                </tr>
+            <tr>
+                <td><b>color :</b></td>
+               <td> <p>{{phone.color}}</p></td>
+                </tr>
+            <tr>
+            <td><b>ram :</b></td>
+            <td><p>{{phone.ram}}GB</p></td>
+                </tr>
+            <tr>
+                <td><b>rom :</b></td>
+                <td><p>{{phone.rom}}GB</p></td>
+            </tr>
+            </table>
+        </div>
+</div>
+<br>
+{% endfor %}
+
+</body>
+</html>
